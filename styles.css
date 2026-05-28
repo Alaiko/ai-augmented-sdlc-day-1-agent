@@ -113,15 +113,18 @@ h1 {
   transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
-#todoInput:focus {
+#todoInput:focus-visible {
   outline: none;
   border-color: var(--input-border-focus);
   box-shadow: 0 0 0 3px var(--input-focus-ring);
 }
 
-#todoInput:focus:not(:focus-visible) {
-  border-color: var(--input-border);
-  box-shadow: none;
+@supports not selector(:focus-visible) {
+  #todoInput:focus {
+    outline: none;
+    border-color: var(--input-border-focus);
+    box-shadow: 0 0 0 3px var(--input-focus-ring);
+  }
 }
 
 #addTodoButton {
@@ -153,7 +156,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   padding: 12px 14px;
   border: 1px solid var(--todo-item-border);
   border-radius: 12px;

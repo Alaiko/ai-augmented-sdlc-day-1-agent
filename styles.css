@@ -115,6 +115,10 @@ h1 {
 
 #todoInput:focus {
   outline: none;
+}
+
+#todoInput:focus-visible {
+  outline: none;
   border-color: var(--input-border-focus);
   box-shadow: 0 0 0 3px var(--input-focus-ring);
 }
@@ -205,8 +209,17 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  body,
+  .container,
+  .theme-toggle-btn,
+  #todoInput,
+  #addTodoButton,
+  .todo-item,
+  .delete-btn {
+    transition: none;
+  }
+
+  .todo-item {
+    animation: none;
   }
 }
